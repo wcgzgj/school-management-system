@@ -63,15 +63,11 @@ Vue，Spring，SpringMVC，MyBaits等相关框架将在后续的项目中使用
 
 这里给出大致的图形交互界面
 
-![image-20201105104247070](../../../../../../Pictures/typora/image-20201105104247070.png)
+![image-20201115232600495](https://gitee.com/faro/images/raw/master/img/20201115232724.png)
 
+![image-20201115232712067](../../../../../../Pictures/typora/20201115232727-20201115232813184.png)
 
-
-![image-20201105104310898](../../../../../../Pictures/typora/image-20201105104310898.png)
-
-
-
-![image-20201105104330848](../../../../../../Pictures/typora/image-20201105104330848.png)
+![image-20201115232700225](https://gitee.com/faro/images/raw/master/img/20201115232726.png)
 
 
 
@@ -79,7 +75,7 @@ Vue，Spring，SpringMVC，MyBaits等相关框架将在后续的项目中使用
 
 # E-R图
 
-![image-20201115202246662](../../../../../../Pictures/typora/image-20201115202246662.png)
+![image-20201115232643422](../../../../../../Pictures/typora/20201115232725.png)
 
 
 
