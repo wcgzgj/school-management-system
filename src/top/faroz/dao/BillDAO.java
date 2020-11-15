@@ -4,6 +4,7 @@ import top.faroz.bean.Bill;
 import top.faroz.utils.DBUtil;
 
 import java.sql.*;
+import java.util.List;
 
 /**
  * @ClassName BillDao
@@ -63,6 +64,22 @@ public class BillDAO {
     }
 
     public void update(Bill bean) {
-        String sql = "update bill set";
+
+    }
+
+    public void delete(int id) {
+
+    }
+
+    public Bill get(int id) {
+        return null;
+    }
+
+    public List<Bill> list() {
+        return list(0,Short.MAX_VALUE);
+    }
+
+    public List<Bill> list(int start,int end) {
+        return null;
     }
 }
