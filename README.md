@@ -65,7 +65,7 @@ Vue，Spring，SpringMVC，MyBaits等相关框架将在后续的项目中使用
 
 ![image-20201115232600495](https://gitee.com/faro/images/raw/master/img/20201115232724.png)
 
-![image-20201115232712067](../../../../../../Pictures/typora/20201115232727-20201115232813184.png)
+![image-20201115232712067](https://gitee.com/faro/images/raw/master/img/20201115233940.png)
 
 ![image-20201115232700225](https://gitee.com/faro/images/raw/master/img/20201115232726.png)
 
@@ -75,7 +75,7 @@ Vue，Spring，SpringMVC，MyBaits等相关框架将在后续的项目中使用
 
 # E-R图
 
-![image-20201115232643422](../../../../../../Pictures/typora/20201115232725.png)
+![image-20201115232643422](https://gitee.com/faro/images/raw/master/img/20201115233932.png)
 
 
 
