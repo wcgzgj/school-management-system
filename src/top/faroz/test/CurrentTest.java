@@ -8,4 +8,7 @@ package top.faroz.test;
  * @Version 1.0
  **/
 public class CurrentTest {
+    public static void main(String[] args) {
+        System.out.println("随便输入一点东西");
+    }
 }
