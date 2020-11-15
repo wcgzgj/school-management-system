@@ -10,5 +10,6 @@ package top.faroz.test;
 public class CurrentTest {
     public static void main(String[] args) {
         System.out.println("随便输入一点东西");
+        //刚才断网了，这次再来测试一次
     }
 }
