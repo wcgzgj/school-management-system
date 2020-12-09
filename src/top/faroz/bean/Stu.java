@@ -11,7 +11,7 @@ public class Stu {
     private int id;
     private String name;
     private String password;
-    private int sta_id;
+    private int sta_id;//学生的老师
 
     public int getId() {
         return id;

@@ -2,7 +2,7 @@ package top.faroz.bean;
 
 /**
  * @ClassName Bill
- * @Description TODO
+ * @Description 报销单
  * @Author FARO_Z
  * @Date 2020/11/15 下午8:44
  * @Version 1.0
