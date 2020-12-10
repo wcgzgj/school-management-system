@@ -11,7 +11,6 @@ public class Stu {
     private int id;
     private String name;
     private String password;
-    private int sta_id;//学生的老师
 
     public int getId() {
         return id;
@@ -37,11 +36,12 @@ public class Stu {
         this.password = password;
     }
 
-    public int getSta_id() {
-        return sta_id;
-    }
-
-    public void setSta_id(int sta_id) {
-        this.sta_id = sta_id;
+    @Override
+    public String toString() {
+        return "Stu{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }

@@ -27,6 +27,18 @@
     <title>包含文件</title>
 </head>
 <body>
-
+    <%
+        // request是jsp中的隐式成员
+        String path = request.getContextPath();
+        int port = request.getServerPort();
+        String basePath  = null;
+        if(port==80){
+            basePath = request.getScheme()+"://"+request.getServerName()+path;
+        }else{
+            basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
+        }
+        //在request中设置一个变量为basePath，后面在jsp中，就可以通过el表达式获取 ${basePath}
+        request.setAttribute("basePath", basePath);
+    %>
 </body>
 </html>

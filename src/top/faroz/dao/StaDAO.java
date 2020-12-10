@@ -17,6 +17,11 @@ import java.util.List;
  * @Version 1.0
  **/
 public class StaDAO {
+    /**
+     *  private int id;
+     *  private String name;
+     *  private String password;
+     */
     public int getTotal() {
         int total=0;
 
