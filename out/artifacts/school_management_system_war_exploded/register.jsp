@@ -41,7 +41,7 @@
                         } else if (data==-2) {
                             alert("当前用户已经存在！")
                         } else {
-                            alert("注册成功！");
+                            alert($("input[name=identity]:checked").val()+"注册成功！");
                             window.location.href="./login.jsp";
                         }
                     }

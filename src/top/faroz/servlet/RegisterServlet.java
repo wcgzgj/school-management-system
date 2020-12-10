@@ -1,6 +1,8 @@
 package top.faroz.servlet;
 
+import top.faroz.bean.Sta;
 import top.faroz.bean.Stu;
+import top.faroz.dao.StaDAO;
 import top.faroz.dao.StuDAO;
 import top.faroz.utils.StringUtil;
 
@@ -56,7 +58,29 @@ public class RegisterServlet extends HttpServlet {
             writer.print(-3);//注册成功
             return;
         } else if ("teacher".equals(identity)) {//如果是老师注册
+            StaDAO staDao = new StaDAO();
+            Sta sta=null;
+            try {
+                Integer.parseInt(userid);
+            } catch (Exception e) {
+                e.printStackTrace();
+                writer.print(-1);//输入的账号不是纯数字
+                return;
+            }
+            sta = staDao.get(Integer.parseInt(userid));
 
+            if (!(sta==null)) {
+                writer.print(-2);//教师存在
+                return;
+            }
+            sta=new Sta();
+            sta.setId(Integer.parseInt(userid));
+            sta.setPassword(password);
+            sta.setName(username);
+            System.out.println(sta.toString());
+            staDao.add(sta);
+            writer.print(-3);//注册成功
+            return;
         }
 
     }

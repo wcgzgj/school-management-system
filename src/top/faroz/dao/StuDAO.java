@@ -1,6 +1,5 @@
 package top.faroz.dao;
 
-import sun.security.pkcs11.Secmod;
 import top.faroz.bean.Stu;
 import top.faroz.utils.DBUtil;
 
