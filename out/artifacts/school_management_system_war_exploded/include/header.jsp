@@ -23,6 +23,7 @@
             cursor: pointer;
         }
     </style>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -39,11 +40,12 @@
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse header" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">首页 <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">请假</a></li>
+                <li><a href="../askholiday.jsp">请假</a></li>
                 <li><a href="#">销假</a></li>
+                <li><a href="#">报销</a></li>
                 <li><a href="#">通知</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

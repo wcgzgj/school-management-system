@@ -10,12 +10,12 @@ import java.util.Date;
  * @Version 1.0
  **/
 public class Holiday {
-    private int id;
-    private String type;
-    private Date start;
-    private Date end;
-    private String status;
-    private int stu_id;
+    private int id; //假期编号
+    private String type; //请假类型 "事假 临时假条..."
+    private Date start; //开始时间
+    private Date end; //结束时间
+    private String status; //状态 "审核中  假期中  已销假"
+    private int stu_id; //申请该假的学生id
 
     public int getId() {
         return id;

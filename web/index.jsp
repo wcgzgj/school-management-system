@@ -8,10 +8,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--<%@include file="include/taglib.jsp"%>--%>
+
 <html>
   <head>
     <title>欢迎使用校园博客系统</title>
+<%--    <%@include file="include/taglib.jsp"%>--%>
   </head>
   <body>
   <%@include file="include/header.jsp"%>
@@ -26,9 +27,9 @@
 
   %>
 <%--  测试jstl标签库--%>
-  <div style="text-align: center;width: 200px">
+  <div style="text-align: center;width: 200px;text-align: center;margin: auto">
 <%--    这里的表格不知道怎么居中，等到时候再说吧--%>
-    <table class="table table-striped" style="text-align: center" align="center">
+    <table class="table table-striped" style="text-align: center;margin: auto">
       <tr>
         <td>序号</td>
         <td>随机数</td>
