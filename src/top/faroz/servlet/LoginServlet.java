@@ -2,7 +2,6 @@ package top.faroz.servlet;
 
 import top.faroz.bean.Sta;
 import top.faroz.bean.Stu;
-import top.faroz.dao.DAO;
 import top.faroz.dao.StaDAO;
 import top.faroz.dao.StuDAO;
 import top.faroz.utils.StringUtil;
@@ -27,7 +26,7 @@ public class LoginServlet extends HttpServlet {
             return;
         }
         if (!StringUtil.isInteger(userid)) {
-            writer.write(-2);//-2 输入的账号不是纯数字
+            writer.print(-2);//-2 输入的账号不是纯数字
             return;
         }
 
@@ -39,8 +38,13 @@ public class LoginServlet extends HttpServlet {
                 writer.print(-3);//-3 查无此人
                 return;
             }
+            if (!(sta.getPassword().equals(password))) {
+                writer.print(-4);//-4 密码错误
+                return;
+            }
             //当一切判断正常，要在session中设置登录的相关信息
             request.getSession().setAttribute("user",sta);
+            request.getSession().setAttribute("username",sta.getName());
         } else if ("student".equals(identity)) {
             StuDAO stuDAO = new StuDAO();
             Stu stu=null;
@@ -49,10 +53,15 @@ public class LoginServlet extends HttpServlet {
                 writer.print(-3);//-3 查无此人
                 return;
             }
+            if (!(stu.getPassword().equals(password))) {
+                writer.print(-4);//-4 密码错误
+                return;
+            }
+            //在session中设置用户的相关信息
             request.getSession().setAttribute("user",stu);
+            request.getSession().setAttribute("username",stu.getName());
         }
-
-
+        return;
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

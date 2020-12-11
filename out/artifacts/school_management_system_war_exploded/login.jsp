@@ -33,7 +33,19 @@
                         alert("登录错误");
                     },
                     success:function (data) {
-
+                        if (data==-1) {
+                            alert("请输入完整的信息");
+                        } else if (data==-2) {
+                            alert("账号必须是数字");
+                        } else if (data==-3) {
+                            alert("查无此人！");
+                        } else if(data==-4) {
+                            alert("密码输入错误！");
+                        } else {
+                            alert("登录成功！");
+                            // <====重新定位到可交互界面
+                            window.location.href="./index.jsp";
+                        }
                     }
                 });
             });
@@ -64,7 +76,7 @@
     <p id="logo" class="logo">校园管理系统</p>
 <%--    <p id="image_logo"><img src="./img/logo.jpg"></p>--%>
     <p><label class="label_input">账号</label><input type="text" id="userid" class="text_field" placeholder="请输入账号"/></p>
-    <p><label class="label_input">密码</label><input type="text" id="password" class="text_field" placeholder="请输入密码"/></p>
+    <p><label class="label_input">密码</label><input type="password" id="password" class="text_field" placeholder="请输入密码"/></p>
     <div>
         <input type="radio" name="identity" value="student" style="margin-left: 2px" checked="true">学生
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

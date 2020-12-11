@@ -22,15 +22,14 @@ public class StringUtil {
     }
 
     /**
-     * 判断该字符串中包含的是不是int性数
+     * 判断该字符串中包含的是不是int类型数
      * @param str
      * @return
      */
     public static boolean isInteger(String str) {
         try {
             Integer.parseInt(str);
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
             return false;
         }
         return true;
