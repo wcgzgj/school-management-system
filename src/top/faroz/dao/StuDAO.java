@@ -13,7 +13,7 @@ import java.util.List;
  * @Date 2020/11/15 下午8:50
  * @Version 1.0
  **/
-public class StuDAO {
+public class StuDAO extends DAO{
     /**
      * private int id;
      * private String name;

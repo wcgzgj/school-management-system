@@ -15,7 +15,7 @@
     <style>
         html,body {
             background-color: antiquewhite;
-            background-image:url("./img/flower.jpg");
+            background-image:url("./img/bkground.jpg");
             background-size: 100% 100%;
             height: 100%;
         }
@@ -47,6 +47,10 @@
                     }
                 });
             });
+            //返回登录界面的按钮
+            $("#btn_login").click(function () {
+                window.location.href="./login.jsp";
+            });
         });
 
     </script>
@@ -68,6 +72,7 @@
     <br/>
     <div id="login_control">
         <input type="button" id="btn_register"  value="注册"/>
+        <input type="button" id="btn_login"  value="返回注册界面"/>
     </div>
 </div>
 </body>

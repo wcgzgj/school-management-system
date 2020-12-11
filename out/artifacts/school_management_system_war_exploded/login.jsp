@@ -6,10 +6,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="include/taglib.jsp"%>
 <html>
 <head>
     <title>登录</title>
+    <%@include file="include/taglib.jsp"%>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <script type="text/javascript" src="js/login.js"></script>
     <style>
@@ -37,13 +37,23 @@
                     }
                 });
             });
-            // 点击注册按钮
+            // 点击注册按钮，跳转到注册界面
             $("#btn_register").click(function () {
                window.location.href="./register.jsp"
             });
         });
-
     </script>
+<%--    登录界面的logo设计样式--%>
+    <style>
+        .logo{
+            background: #EEE url(data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAAHklEQVQImWNkYGBgYGD4//8/A5wF5SBYyAr+//8PAPOCFO0Q2zq7AAAAAElFTkSuQmCC) repeat;
+            text-shadow: 5px -5px black, 4px -4px white;
+            font-weight: bold;
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            font-size: 30px;
+        }
+    </style>
 </head>
 
 <body>
@@ -51,7 +61,7 @@
 
 <body>
 <div id="login_frame">
-
+    <p id="logo" class="logo">校园管理系统</p>
 <%--    <p id="image_logo"><img src="./img/logo.jpg"></p>--%>
     <p><label class="label_input">账号</label><input type="text" id="userid" class="text_field" placeholder="请输入账号"/></p>
     <p><label class="label_input">密码</label><input type="text" id="password" class="text_field" placeholder="请输入密码"/></p>
@@ -60,8 +70,6 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <input type="radio" name="identity" value="teacher" style="margin-right: 2px">老师
     </div>
-    <br/>
-    <br/>
     <br/>
     <div id="login_control">
         <input type="button" id="btn_login" value="登录"/>
