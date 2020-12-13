@@ -84,8 +84,8 @@
     </div>
     <br/>
     <div id="login_control">
-        <input type="button" id="btn_login" value="登录"/>
-        <input type="button" id="btn_register"  value="注册"/>
+        <input type="button" id="btn_login" class="btn btn-primary" value="登录"/>
+        <input type="button" id="btn_register" class="btn btn-primary" value="注册"/>
     </div>
 </div>
 

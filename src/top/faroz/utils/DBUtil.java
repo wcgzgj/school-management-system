@@ -1,9 +1,11 @@
 package top.faroz.utils;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Stack;
+import java.util.jar.JarEntry;
 
 /**
  * @ClassName DBUtil
@@ -41,5 +43,25 @@ public class DBUtil {
             throwables.printStackTrace();
         }
         return conn;
+    }
+
+    /**
+     * util.date转换成sql.date
+     * @param date
+     * @return
+     */
+    public static java.sql.Date javaDateToSqlDate(java.util.Date date) {
+        java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+        return sqlDate;
+    }
+
+    /**
+     * sql.date转换成util.date
+     * @param date
+     * @return
+     */
+    public static java.util.Date sqlDateToJavaDate(java.sql.Date date) {
+        java.util.Date utilDate = new java.util.Date(date.getTime());
+        return utilDate;
     }
 }

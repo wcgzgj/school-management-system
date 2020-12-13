@@ -64,4 +64,16 @@ public class Holiday {
     public void setStu_id(int stu_id) {
         this.stu_id = stu_id;
     }
+
+    @Override
+    public String toString() {
+        return "Holiday{" +
+                "id=" + id +
+                ", type='" + type + '\'' +
+                ", start=" + start +
+                ", end=" + end +
+                ", status='" + status + '\'' +
+                ", stu_id=" + stu_id +
+                '}';
+    }
 }

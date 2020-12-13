@@ -4,6 +4,7 @@ import top.faroz.bean.Sta;
 import top.faroz.utils.DBUtil;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -86,9 +87,27 @@ public class StaDAO extends DAO{
         return sta;
     }
 
+    /**
+     * 获取数据库中所有行的数据
+     * @return
+     */
     public List<Sta> list() {
-        // return list(0,Short.MAX_VALUE);
-        return null;
+        String sql = "select * from sta";
+        List<Sta> list = new ArrayList<>();
+        Connection conn = DBUtil.getConnection();
+        try (PreparedStatement stmt = conn.prepareStatement(sql)){
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Sta sta = new Sta();
+                sta.setId(rs.getInt(1));
+                sta.setName(rs.getString(2));
+                sta.setPassword(rs.getString(3));
+                list.add(sta);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return list;
     }
 
     public List<Sta> list(int start,int end) {
