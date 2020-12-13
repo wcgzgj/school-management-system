@@ -36,6 +36,12 @@ public class AskHolidayServlet extends HttpServlet {
         Stu stu = (Stu) request.getSession().getAttribute("user");//登录的学生信息
         PrintWriter writer = response.getWriter();
 
+        if (StringUtil.isEmpty(type) || StringUtil.isEmpty(start)||
+                StringUtil.isEmpty(end) || StringUtil.isEmpty(sta)) {
+            writer.print(-1);//-1 请输入完整的信息
+            return;
+        }
+
         //字符串格式的日期转换为Date类型
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date startDate=null;
@@ -46,12 +52,7 @@ public class AskHolidayServlet extends HttpServlet {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
-        if (StringUtil.isEmpty(type) || StringUtil.isEmpty(start)||
-                StringUtil.isEmpty(end) || StringUtil.isEmpty(sta)) {
-            writer.print(-1);//-1 请输入完整的信息
-        }
-        if (startDate.getTime()<=endDate.getTime()) {
+        if (startDate.getTime()>=endDate.getTime()) {
             writer.print(-2);// -2 日期选择错误，起始日期应该小于终止日期
             return;
         }
@@ -61,12 +62,14 @@ public class AskHolidayServlet extends HttpServlet {
         //判断学生id是否出现在stu_sta表中，如果出现的话，说明当前学生有休假正在进行
         StuSta tmpStu = stuStaDAO.getByStu(stu.getId());
         if (tmpStu!=null) {
+            System.out.println(tmpStu);
             writer.print(-3); //-3 当前学生有休假正在进行
             return;
         }
 
 
         Holiday holiday = new Holiday();
+        holiday.setType(type);
         holiday.setStart(startDate);
         holiday.setEnd(endDate);
         //刚申请的假期，处于审核中的状态

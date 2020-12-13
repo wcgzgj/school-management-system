@@ -31,7 +31,7 @@ public class HolidayDAO extends DAO{
     }
 
     public void add(Holiday bean) {
-        String sql = "select into holiday values(null,?,?,?,?,?)";
+        String sql = "insert into holiday values(null,?,?,?,?,?)";
         try (Connection conn = DBUtil.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             System.out.println(bean);

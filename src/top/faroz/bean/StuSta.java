@@ -37,4 +37,13 @@ public class StuSta {
     public void setSta_id(int sta_id) {
         this.sta_id = sta_id;
     }
+
+    @Override
+    public String toString() {
+        return "StuSta{" +
+                "id=" + id +
+                ", stu_id=" + stu_id +
+                ", sta_id=" + sta_id +
+                '}';
+    }
 }
