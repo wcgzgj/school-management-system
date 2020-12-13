@@ -44,6 +44,15 @@
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AskHolidayServlet</servlet-name>
+        <servlet-class>top.faroz.servlet.AskHolidayServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AskHolidayServlet</servlet-name>
+        <url-pattern>/askholiday</url-pattern>
+    </servlet-mapping>
+
 
 
 

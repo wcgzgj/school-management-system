@@ -42,7 +42,7 @@
                         } else if(data==-4) {
                             alert("密码输入错误！");
                         } else {
-                            alert("登录成功！");
+                            // alert("登录成功！");成功就不提示了，直接进入
                             // <====重新定位到可交互界面
                             // 学生和老师的登录界面是不一样的
                             // 学生的操作和老师的操作有区别
@@ -70,9 +70,6 @@
         }
     </style>
 </head>
-
-<body>
-<%--<%@include file="include/header.jsp"%>--%>
 
 <body>
 <div id="login_frame">

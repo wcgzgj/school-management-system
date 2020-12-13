@@ -9,10 +9,13 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+<%--此页面只是用来测试各个前端的功能的--%>
+<%--所以在其他功能完成后，welcomelist不会包含--%>
+
 <html>
   <head>
     <title>欢迎使用校园博客系统</title>
-<%--    <%@include file="include/taglib.jsp"%>--%>
+    <%@include file="include/taglib.jsp"%>
   </head>
   <body>
   <%@include file="include/header.jsp"%>
