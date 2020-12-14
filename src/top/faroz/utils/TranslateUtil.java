@@ -16,7 +16,7 @@ public class TranslateUtil {
      * @param str
      * @return
      */
-    public static String translateHolidayStatus(String str) {
+    public static String translateStatus(String str) {
         switch (str) {
             case "underreview":
                 return "审核中";

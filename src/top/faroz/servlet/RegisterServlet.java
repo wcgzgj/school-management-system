@@ -24,7 +24,6 @@ public class RegisterServlet extends HttpServlet {
         String userid = request.getParameter("userid");
         String password = request.getParameter("password");
         String identity = request.getParameter("identity");//获得是学生还是老师在登录
-        System.out.println(username+" "+userid+" "+password+" "+identity);
 
         //保证输入的信息完整
         //如果三个输入框，有一个没有输入，都会显示输入信息不完整

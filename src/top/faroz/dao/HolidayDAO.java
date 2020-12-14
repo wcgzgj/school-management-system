@@ -36,7 +36,6 @@ public class HolidayDAO extends DAO{
         String sql = "insert into holiday values(null,?,?,?,?,?)";
         try (Connection conn = DBUtil.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
-            System.out.println(bean);
             stmt.setString(1,bean.getType());
             stmt.setDate(2,DBUtil.javaDateToSqlDate(bean.getStart()));
             stmt.setDate(3,DBUtil.javaDateToSqlDate(bean.getEnd()));

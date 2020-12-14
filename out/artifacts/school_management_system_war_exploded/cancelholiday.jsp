@@ -27,7 +27,6 @@
 <%
     Stu user = (Stu) request.getSession().getAttribute("user");
     int stuID = user.getId();
-    System.out.println(stuID);
     HolidayDAO holidayDAO = new HolidayDAO();
     List<Holiday> list = holidayDAO.list();
     // 如果依照我的设计，应该只会出现一个假期的信息
@@ -35,7 +34,7 @@
     //但这样写体现严谨性
     for (Holiday holiday : list) {
         holiday.setType(TranslateUtil.translateHolidayType(holiday.getType()));
-        holiday.setStatus(TranslateUtil.translateHolidayStatus(holiday.getStatus()));
+        holiday.setStatus(TranslateUtil.translateStatus(holiday.getStatus()));
     }
     //要显示的，只是当先学生的，在审核中或者进行中的假期
     List<Holiday> holidays = new ArrayList<>();

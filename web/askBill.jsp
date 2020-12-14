@@ -21,18 +21,17 @@
     <script>
         $(document).ready(function () {
             $("#btn_submit").click(function () {
-                let type = $("#cb_type").val(); //请假类型
-                let start = $("#start_date").val(); //开始日期
-                let end = $("#end_date").val(); //结束日期
-                let sta = $("#sta_list").val(); //教师id
+                let reason = $("#reason").val(); //报销原因
+                let money = $("#money").val(); //报销金额
+                let sta_id = $("#sta_list").val(); //报告教师的id
                 // alert(type+" "+sta);
                 $.ajax({
                     type:"post",//请求方式
-                    url:"/askholiday",//请求传输的位置
-                    data:{"type":type,
-                        "start":start,
-                        "end":end,
-                        "sta":sta},
+                    url:"/askbill",//请求传输的位置
+                    data:{"reason":reason,
+                        "money":money,
+                        "sta_id":sta_id,
+                    },
                     error:function () {
                         alert("提交错误");
                     },
@@ -44,7 +43,7 @@
                         } else if (data==-3) {
                             alert("当前学生有休假正在进行!");
                         } else {
-                            alert("登陆成功！")
+                            alert("提交成功！")
                         }
                     }
                 });
@@ -68,12 +67,12 @@
         <tr>
             <td><label class="label label-info">请输入申报原因：</label></td>
             <td>
-                <input type="text" id="reason">
+                <input type="text" id="reason" placeholder="请输入原因">
             </td>
         </tr>
         <tr>
             <td><label class="label label-info">请输入申报钱数：</label></td>
-            <td><input type="text" id="money"></td>
+            <td><input type="text" id="money" placeholder="请输入钱数"></td>
         </tr>
         <tr>
             <td><label class="label label-info">请选择汇报老师：</label></td>

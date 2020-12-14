@@ -3,7 +3,9 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="top.faroz.bean.Stu" %>
-<%@ page import="top.faroz.utils.TranslateUtil" %><%--
+<%@ page import="top.faroz.utils.TranslateUtil" %>
+<%@ page import="top.faroz.dao.BillDAO" %>
+<%@ page import="top.faroz.bean.Bill" %><%--
   Created by IntelliJ IDEA.
   User: faro_z
   Date: 2020/12/11
@@ -15,35 +17,53 @@
 <head>
     <title>通知</title>
     <%@include file="include/taglib.jsp"%>
+    <style>
+        .notice_head {
+            text-align: center;
+            font-size: 20px;
+            color: blue;
+            font-family: "Academy Engraved LET";
+        }
+    </style>
 </head>
 <body>
 <%@include file="include/header.jsp"%>
 
 <%
     Stu stu = (Stu) request.getSession().getAttribute("user");
+
     HolidayDAO holidayDAO = new HolidayDAO();
-    List<Holiday> list = holidayDAO.list();
+    List<Holiday> holidayList = holidayDAO.list();
     List<Holiday> holidays = new ArrayList<>();
-    for (Holiday holiday : list) {
+    for (Holiday holiday : holidayList) {
         if (holiday.getStu_id()==stu.getId()) {
             holidays.add(holiday);
         }
     }
     for (Holiday holiday : holidays) {
         holiday.setType(TranslateUtil.translateHolidayType(holiday.getType()));
-        holiday.setStatus(TranslateUtil.translateHolidayStatus(holiday.getStatus()));
+        holiday.setStatus(TranslateUtil.translateStatus(holiday.getStatus()));
     }
     request.setAttribute("holidays",holidays);
+
+    BillDAO billDAO = new BillDAO();
+    List<Bill> billList = billDAO.list();
+    List<Bill> bills = new ArrayList<>();
+    for (Bill bill : billList) {
+        if (bill.getStu_id()==stu.getId()) {
+            bill.setStatus(TranslateUtil.translateStatus(bill.getStatus()));
+            bills.add(bill);
+        }
+    }
+    request.setAttribute("bills",bills);
 %>
 
 
 
 <%--显示请假情况--%>
-<div style="margin: auto;text-align: center" >
+<div style="    margin: auto;text-align: center" >
+    <p class="notice_head">请假状况</p>
     <table  class="table table-striped" style="text-align: center;margin: auto;width: 80%">
-        <tr>
-            <td style="collapse: 5">请假状况</td>
-        </tr>
         <tr>
             <th>序号</th>
             <th>请假类型</th>
@@ -63,8 +83,31 @@
     </table>
 </div>
 
-
 <%--显示报销情况--%>
+<div style="margin: auto;text-align: center" >
+    <p class="notice_head">报销状况</p>
+    <table  class="table table-striped" style="text-align: center;margin: auto;width: 80%">
+        <tr>
+            private int id;
+            private String reason;
+            private float money;
+            private String status;
+            private int stu_id;
+            <th>序号</th>
+            <th>报销原因</th>
+            <th>报销钱数</th>
+            <th>报销状态</th>
+        </tr>
+        <c:forEach items="${bills}" var="bill" varStatus="st">
+            <tr>
+                <td>${st.count}</td>
+                <td>${bill.reason}</td>
+                <td>${bill.money}</td>
+                <td>${bill.status}</td>
+            </tr>
+        </c:forEach>
+    </table>
+</div>
 
 
 <%@include file="include/footer.jsp"%>

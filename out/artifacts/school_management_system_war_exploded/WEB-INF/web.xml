@@ -62,5 +62,14 @@
         <url-pattern>/cancelholiday</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AskBillServlet</servlet-name>
+        <servlet-class>top.faroz.servlet.AskBillServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AskBillServlet</servlet-name>
+        <url-pattern>/askbill</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>

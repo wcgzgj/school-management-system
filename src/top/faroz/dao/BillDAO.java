@@ -4,6 +4,7 @@ import top.faroz.bean.Bill;
 import top.faroz.utils.DBUtil;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -76,7 +77,33 @@ public class BillDAO extends DAO{
     }
 
     public List<Bill> list() {
-        return list(0,Short.MAX_VALUE);
+        List<Bill> list = new ArrayList<>();
+        String sql = "select * from bill";
+        try(Connection conn = DBUtil.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            ResultSet rs = stmt.executeQuery();
+            /**
+             *     private int id;
+             *     private String reason;
+             *     private float money;
+             *     private String status;
+             *     private int stu_id;
+             */
+            while (rs.next()) {
+                Bill bill = new Bill();
+                bill.setId(rs.getInt(1));
+                bill.setReason(rs.getString(2));
+                bill.setMoney(rs.getFloat(3));
+                bill.setStatus(rs.getString(4));
+                bill.setStu_id(rs.getInt(5));
+                list.add(bill);
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return list;
     }
 
     public List<Bill> list(int start,int end) {
