@@ -18,12 +18,7 @@ import java.io.PrintWriter;
 @WebServlet(name = "AskBillServlet")
 public class AskBillServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        /**
-         *   data:{"reason":reason,
-         *         "money":money,
-         *         "sta_id":sta_id,
-         *   },
-         */
+
         PrintWriter writer = response.getWriter();
         //这里不但要插入bill表，还要将数据插入 stu_sta_bill表
         Stu stu = (Stu) request.getSession().getAttribute("user");
@@ -44,13 +39,6 @@ public class AskBillServlet extends HttpServlet {
         StuStaBillDAO stuStaBillDAO = new StuStaBillDAO();
         //新建bill对象
         Bill bill = new Bill();
-        /**
-         *     private int id;
-         *     private String reason;
-         *     private float money;
-         *     private String status;
-         *     private int stu_id;
-         */
         bill.setReason(reason);
         bill.setMoney(Float.parseFloat(money));
         bill.setStatus("underreview");
@@ -58,11 +46,6 @@ public class AskBillServlet extends HttpServlet {
 
         //新建StuStaBill对象
         StuStaBill stuStaBill = new StuStaBill();
-        /**
-         *     private int id;
-         *     private int stu_id;
-         *     private int sta_id;
-         */
         stuStaBill.setStu_id(stu.getId());
         stuStaBill.setSta_id(Integer.parseInt(sta_id));
 

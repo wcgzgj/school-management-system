@@ -84,15 +84,10 @@
 </div>
 
 <%--显示报销情况--%>
-<div style="margin: auto;text-align: center" >
+<div style="margin: auto;text-align: center;margin-top: 40px" >
     <p class="notice_head">报销状况</p>
     <table  class="table table-striped" style="text-align: center;margin: auto;width: 80%">
         <tr>
-            private int id;
-            private String reason;
-            private float money;
-            private String status;
-            private int stu_id;
             <th>序号</th>
             <th>报销原因</th>
             <th>报销钱数</th>

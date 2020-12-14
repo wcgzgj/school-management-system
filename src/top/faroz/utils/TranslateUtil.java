@@ -24,6 +24,8 @@ public class TranslateUtil {
                 return "进行中";
             case "over":
                 return "已结束";
+            case "reject":
+                return "已拒绝";
             default:
                 return "输入错误";
         }

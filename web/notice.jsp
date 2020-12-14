@@ -84,7 +84,7 @@
 </div>
 
 <%--显示报销情况--%>
-<div style="margin: auto;text-align: center" >
+<div style="margin: auto;text-align: center;margin-top: 40px" >
     <p class="notice_head">报销状况</p>
     <table  class="table table-striped" style="text-align: center;margin: auto;width: 80%">
         <tr>

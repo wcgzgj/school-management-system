@@ -12,12 +12,6 @@
 <head>
     <title>报销单</title>
     <%@include file="include/taglib.jsp"%>
-
-<%--    private int id;--%>
-<%--    private String reason;--%>
-<%--    private float money;--%>
-<%--    private String status;--%>
-<%--    private int stu_id;--%>
     <script>
         $(document).ready(function () {
             $("#btn_submit").click(function () {
@@ -39,9 +33,7 @@
                         if (data==-1) {
                             alert("请输入完整信息！")
                         } else if (data==-2) {
-                            alert("日期选择错误，起始日期应该小于终止日期!");
-                        } else if (data==-3) {
-                            alert("当前学生有休假正在进行!");
+                            alert("输入的钱数有误！");
                         } else {
                             alert("提交成功！")
                         }

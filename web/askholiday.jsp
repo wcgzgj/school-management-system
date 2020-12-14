@@ -53,12 +53,6 @@
 </head>
 <body>
 <%@include file="./include/header.jsp"%>
-<%--private int id; 请假单编号--%>
-<%--private String type;  请假单类型--%>
-<%--private Date start;  假期开始时间--%>
-<%--private Date end; 假期结束时间--%>
-<%--private String status; 状态 "审核中  假期中  已销假" 这一项应该在通知中显示--%>
-<%--private int stu_id; 申请假期的学生的id  这一项自动填写--%>
 <%
     // 这里调用StaDAO，获取所有老师的信息
     // 方便学生选择对应的要汇报的老师
