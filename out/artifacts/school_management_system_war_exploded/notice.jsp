@@ -64,7 +64,7 @@
 <div style="    margin: auto;text-align: center" >
     <p class="notice_head">请假状况</p>
     <table  class="table table-striped" style="text-align: center;margin: auto;width: 80%">
-        <tr>
+        <tr style="text-align: center">
             <th>序号</th>
             <th>请假类型</th>
             <th>开始时间</th>
@@ -87,7 +87,7 @@
 <div style="margin: auto;text-align: center;margin-top: 40px" >
     <p class="notice_head">报销状况</p>
     <table  class="table table-striped" style="text-align: center;margin: auto;width: 80%">
-        <tr>
+        <tr style="text-align: center">
             <th>序号</th>
             <th>报销原因</th>
             <th>报销钱数</th>

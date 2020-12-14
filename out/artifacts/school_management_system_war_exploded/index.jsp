@@ -84,13 +84,15 @@
         width: 100%;
       }
 
-      #links a:hover {
+      #links p:hover {
         cursor: pointer;
         text-decoration: none;
         background-color: #3BD9FF;
         color: #f1f1f1;
         font: 20px/1 Tahoma,Helvetica,Arial,"\5b8b\4f53",sans-serif;
         line-height: 30px;
+
+          margin-top: 15px;
       }
     </style>
   </head>
@@ -102,30 +104,61 @@
     <div class="side">
       <h3>更多内容</h3>
       <div id="links">
-        <a target="_blank" href="https://github.com/wcgzgj/FAROInterpreter.git">MyLisp解释器</a>
+        <p><a target="_blank" href="https://github.com/wcgzgj/FAROInterpreter.git">MyLisp解释器</a></p>
         <br/>
-        <a target="_blank" href="https://github.com/wcgzgj/gobang-ver4.0-JavaSwing.git">人工智能五子棋</a>
+        <p><a target="_blank" href="https://github.com/wcgzgj/gobang-ver4.0-JavaSwing.git">人工智能五子棋</a></p>
         <br/>
-        <a target="_blank" href="https://github.com/wcgzgj/school-qq.git">校园qq</a>
+        <p><a target="_blank" href="https://github.com/wcgzgj/school-qq.git">校园qq</a></p>
         <br/>
-        <a target="_blank" href="https://github.com/wcgzgj/java-net-shell.git">远程控制程序</a>
+        <p><a target="_blank" href="https://github.com/wcgzgj/java-net-shell.git">远程控制程序</a></p>
         <br/>
       </div>
     </div>
     <div class="main">
       <h2>项目介绍</h2>
       <h5>校园管理系统</h5>
-      <div class="text_area" style="height:200px;">
+      <div class="text_area">
+        <pre>
+本系虽然是简单的CRUD，但也是一个从无到有的过程
+系统包含教师端和学生端
+学生端包含的主要功能有：
+  * 请假：
+      可以设置请假的起始时间，申报老师以及请假的原因
+  * 报销：
+      可以设置报销的钱数，原因，和汇报的老师
+  * 通知：
+      可以查看过去以及现在所有的请假以及报销几率
 
+教师端包含的主要功能如下：
+  * 处理请假：
+      处理向自己申请请假的学生的假条
+  * 处理报销：
+      处理向自己汇报的报销单
+  * 通知：
+      显示上级下达的重要通知
+
+其他部分：
+  系统包含了完整的登录注册判断
+        </pre>
       </div>
-      <p>一些文本..</p>
-      <p>菜鸟教程，学的不仅是技术，更是梦想！！！菜鸟教程，学的不仅是技术，更是梦想！！！菜鸟教程，学的不仅是技术，更是梦想！！！</p>
       <br>
-      <h2>标题</h2>
-      <h5>副标题</h5>
-      <div class="text_area" style="height:200px;">图像</div>
-      <p>一些文本..</p>
-      <p>菜鸟教程，学的不仅是技术，更是梦想！！！菜鸟教程，学的不仅是技术，更是梦想！！！菜鸟教程，学的不仅是技术，更是梦想！！！</p>
+      <h2>联系我们</h2>
+      <h5>FAROZ's Github</h5>
+      <div class="text_area">
+        <pre>
+想获得更多作者的作品？欢迎持续关注作者的Github地址：
+https://github.com/wcgzgj/school-management-system.git
+目前已经完成的项目有：
+    * MyLisp解释器：
+        <a target="_blank" href="https://github.com/wcgzgj/FAROInterpreter.git">https://github.com/wcgzgj/FAROInterpreter.git</a>
+    * 人工智能五子棋：
+        <a target="_blank" href="https://github.com/wcgzgj/gobang-ver4.0-JavaSwing.git">https://github.com/wcgzgj/gobang-ver4.0-JavaSwing.git</a>
+    * 校园qq：
+        <a target="_blank" href="https://github.com/wcgzgj/school-qq.git">https://github.com/wcgzgj/school-qq.git</a>
+    * 远程控制程序：
+        <a target="_blank" href="https://github.com/wcgzgj/java-net-shell.git">https://github.com/wcgzgj/java-net-shell.git</a>
+        </pre>
+      </div>
     </div>
   </div>
 

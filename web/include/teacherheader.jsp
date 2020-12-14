@@ -12,6 +12,14 @@
 <html>
 <head>
     <title>首栏</title>
+    <script>
+        $(document).ready(function () {
+            $("#resign_link").click(function () {
+                ${sessionScope.clear()}
+                window.location.href="./login.jsp";
+            });
+        });
+    </script>
     <style>
         #resign_link:hover {
             cursor: pointer;
@@ -31,10 +39,10 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse header" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">首页 <span class="sr-only">(current)</span></a></li>
-                <li><a href="../askholiday.jsp">审批假条</a></li>
-                <li><a href="#">审批报销</a></li>
-                <li><a href="#">通知</a></li>
+                <li class="active"><a href="./teacherindex.jsp">首页 <span class="sr-only">(current)</span></a></li>
+                <li><a href="./teacherholiday.jsp">审批假条</a></li>
+                <li><a href="./teacherbill.jsp">审批报销</a></li>
+                <li><a href="./teachernotice.jsp">通知</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">欢迎 ${sessionScope.username}</a></li>

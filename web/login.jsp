@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>登录</title>
+    <title>学生端首页</title>
     <%@include file="include/taglib.jsp"%>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <script type="text/javascript" src="js/login.js"></script>
@@ -22,7 +22,7 @@
     <script>
         $(document).ready(function () {
             $("#btn_login").click(function () {
-
+                let identity = $("input[name=identity]:checked").val();
                 $.ajax({//ajax传输json数据
                     type:"post",//请求方式
                     url:"/login",//请求传输的位置
@@ -47,7 +47,11 @@
                             // 学生和老师的登录界面是不一样的
                             // 学生的操作和老师的操作有区别
                             // 两个的header要有区别
-                            window.location.href="./index.jsp";
+                            if (identity=="student") {
+                                window.location.href="./index.jsp";
+                            } else {
+                                window.location.href="./teacherindex.jsp";
+                            }
                         }
                     }
                 });
