@@ -17,11 +17,14 @@
     <script>
         $(document).ready(function () {
             $("#btn_submit").click(function () {
+                var confirmDelete = confirm("确认要提交请假单");
+                if(!confirmDelete) return;
+
                 let type = $("#cb_type").val(); //请假类型
                 let start = $("#start_date").val(); //开始日期
                 let end = $("#end_date").val(); //结束日期
                 let sta = $("#sta_list").val(); //教师id
-                // alert(type+" "+sta);
+
                 $.ajax({
                     type:"post",//请求方式
                     url:"/askholiday",//请求传输的位置
@@ -40,22 +43,13 @@
                         } else if (data==-3) {
                             alert("当前学生有休假正在进行!");
                         } else {
-                            alert("登陆成功！")
+                            alert("提交成功！")
                         }
                     }
                 });
             });
         });
     </script>
-    <style>
-        /*html,body {*/
-        /*    background-color: cornsilk;*/
-        /*}*/
-        #center_div {
-            position: absolute;
-            margin-top: 50%;
-        }
-    </style>
 </head>
 <body>
 <%@include file="./include/header.jsp"%>

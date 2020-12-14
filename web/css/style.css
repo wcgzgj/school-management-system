@@ -115,7 +115,7 @@ form p > * {
 #login_control {
     padding: 0 28px;
 }
-/*登录界面是logo css*/
+/*登录界面的logo css*/
 .logo{
     background: #EEE url(data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAAHklEQVQImWNkYGBgYGD4//8/A5wF5SBYyAr+//8PAPOCFO0Q2zq7AAAAAElFTkSuQmCC) repeat;
     text-shadow: 5px -5px black, 4px -4px white;

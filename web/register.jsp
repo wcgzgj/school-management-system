@@ -70,7 +70,7 @@
     <br/>
     <div id="login_control">
         <input type="button" id="btn_register" class="btn btn-primary" value="注册"/>
-        <input type="button" id="btn_login" class="btn btn-primary" value="返回注册界面"/>
+        <input type="button" id="btn_login" class="btn btn-primary" value="返回登录界面"/>
     </div>
 </div>
 </body>

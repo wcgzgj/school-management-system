@@ -1,9 +1,11 @@
 package top.faroz.dao;
 
+import com.sun.org.apache.regexp.internal.RE;
 import top.faroz.bean.Holiday;
 import top.faroz.utils.DBUtil;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -59,7 +61,15 @@ public class HolidayDAO extends DAO{
     }
 
     public void delete(int id) {
-
+        String sql = "delete from holiday where id=?";
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)){
+            stmt.setInt(1,id);
+            //执行删除操作
+            stmt.execute();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     public Holiday get(int id) {
@@ -67,7 +77,33 @@ public class HolidayDAO extends DAO{
     }
 
     public List<Holiday> list() {
-        return list(0,Short.MAX_VALUE);
+        List<Holiday> list = new ArrayList<>();
+        Connection conn = DBUtil.getConnection();
+        String sql = "select * from holiday";
+        try (PreparedStatement stmt = conn.prepareStatement(sql)){
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                /**
+                 *     private int id; //假期编号
+                 *     private String type; //请假类型 "事假 临时假条..."
+                 *     private Date start; //开始时间
+                 *     private Date end; //结束时间
+                 *     private String status; //状态 "审核中  假期中  已销假"
+                 *     private int stu_id; //申请该假的学生id
+                 */
+                Holiday holiday = new Holiday();
+                holiday.setId(rs.getInt(1));
+                holiday.setType(rs.getString(2));
+                holiday.setStart(DBUtil.sqlDateToJavaDate(rs.getDate(3)));
+                holiday.setEnd(DBUtil.sqlDateToJavaDate(rs.getDate(4)));
+                holiday.setStatus(rs.getString(5));
+                holiday.setStu_id(rs.getInt(6));
+                list.add(holiday);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return list;
     }
 
     public List<Holiday> list(int start,int end) {

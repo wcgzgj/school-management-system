@@ -36,11 +36,11 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse header" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">首页 <span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="../index.jsp">首页 <span class="sr-only">(current)</span></a></li>
                 <li><a href="../askholiday.jsp">请假</a></li>
-                <li><a href="#">销假</a></li>
-                <li><a href="#">报销</a></li>
-                <li><a href="#">通知</a></li>
+                <li><a href="../cancelholiday.jsp">销假</a></li>
+                <li><a href="../askBill.jsp">报销</a></li>
+                <li><a href="../notice.jsp">通知</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">欢迎 ${sessionScope.username}</a></li>
