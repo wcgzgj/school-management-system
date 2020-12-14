@@ -105,6 +105,20 @@ public class StuStaDAO {
 
     }
 
+    /**
+     * 通过学生信息删除
+     */
+    public void deleteByStuId(int id) {
+        String sql = "delete from stu_sta where stu_id=?";
+        try(Connection conn = DBUtil.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1,id);
+            stmt.execute();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
     public Bill get(int id) {
         return null;
     }

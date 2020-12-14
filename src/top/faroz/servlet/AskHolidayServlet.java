@@ -17,6 +17,7 @@ import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -59,12 +60,30 @@ public class AskHolidayServlet extends HttpServlet {
         //如果一切判断无误，实例化DAO层,准备使用
         HolidayDAO holidayDAO = new HolidayDAO();
         StuStaDAO stuStaDAO = new StuStaDAO();
-        //判断学生id是否出现在stu_sta表中，如果出现的话，说明当前学生有休假正在进行
-        StuSta tmpStu = stuStaDAO.getByStu(stu.getId());
-        if (tmpStu!=null) {
-            System.out.println(tmpStu);
-            writer.print(-3); //-3 当前学生有休假正在进行
-            return;
+
+
+        // //判断学生id是否出现在stu_sta表中，如果出现的话，说明当前学生有休假正在进行
+        // StuSta tmpStu = stuStaDAO.getByStu(stu.getId());
+        // if (tmpStu!=null) {
+        //     System.out.println(tmpStu);
+        //     writer.print(-3); //-3 当前学生有休假正在进行
+        //     return;
+        // }
+
+        //判断是否有假期正在进行中，改成从holiday表中寻找
+        List<Holiday> holidays = holidayDAO.list();
+        for (Holiday holiday : holidays) {
+            /**
+             * 如果请假单中，
+             * 有假期的申请id和登录账号相等
+             * 且假期的状态，是审核中或者进行中
+             * 那么，就判定该学生有假期正在进行
+             */
+            if (holiday.getStu_id()==stu.getId() &&
+                    (holiday.getStatus().equals("underreview") || holiday.getStatus().equals("undergoing"))) {
+                writer.print(-3);
+                return;
+            }
         }
 
 
@@ -82,7 +101,10 @@ public class AskHolidayServlet extends HttpServlet {
         StuSta stuSta = new StuSta();
         stuSta.setStu_id(stu.getId());
         stuSta.setSta_id(Integer.parseInt(sta));
-        stuStaDAO.add(stuSta);
+        //只有在学生还没有绑定老师的情况下，才可以插入信息
+        if (stuStaDAO.getByStu(stu.getId())!=null) {
+            stuStaDAO.add(stuSta);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
