@@ -1,9 +1,11 @@
 package top.faroz.dao;
 
+import com.sun.org.apache.regexp.internal.RE;
 import top.faroz.bean.Stu;
 import top.faroz.utils.DBUtil;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -93,7 +95,23 @@ public class StuDAO extends DAO{
     }
 
     public List<Stu> list() {
-        return list(0,Short.MAX_VALUE);
+        String sql = "select * from stu";
+        List<Stu> list = new ArrayList<>();
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Stu stu = new Stu();
+                stu.setId(rs.getInt(1));
+                stu.setName(rs.getString(2));
+                stu.setPassword(rs.getString(3));
+                list.add(stu);
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return list;
     }
 
     public List<Stu> list(int start,int end) {

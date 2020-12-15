@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -48,7 +49,16 @@ public class StuStaBillDAO {
     }
 
     public void delete(int id) {
+        String sql = "delete from stu_sta_bill where id=?";
+        try(Connection conn = DBUtil.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
 
+            stmt.setInt(1,id);
+            stmt.execute();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     public Holiday get(int id) {
@@ -56,7 +66,24 @@ public class StuStaBillDAO {
     }
 
     public List<StuStaBill> list() {
-        return null;
+        List<StuStaBill> list = new ArrayList<>();
+        String sql = "select * from stu_sta_bill";
+        try(Connection conn = DBUtil.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                StuStaBill stuStaBill = new StuStaBill();
+                stuStaBill.setId(rs.getInt(1));
+                stuStaBill.setStu_id(rs.getInt(2));
+                stuStaBill.setSta_id(rs.getInt(3));
+                list.add(stuStaBill);
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return list;
     }
 
     public List<StuStaBill> list(int start,int end) {

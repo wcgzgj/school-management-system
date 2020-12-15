@@ -26,6 +26,8 @@ public class TranslateUtil {
                 return "已结束";
             case "reject":
                 return "已拒绝";
+            case "agree":
+                return "已同意";
             default:
                 return "输入错误";
         }

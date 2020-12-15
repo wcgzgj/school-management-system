@@ -18,37 +18,14 @@
     <%@include file="include/taglib.jsp"%>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
-    <script>
-        // $(document).ready(function () {
-        //     $("#agree").click(function () {
-        //         $.ajax({
-        //             type:"post",//请求方式
-        //             url:"/teacherholiday",//请求传输的位置
-        //             data:{"stuID":  ,
-        //                 "staID":  ,
-        //             error:function () {
-        //                 alert("操作错误");
-        //             },
-        //             success:function (data) {
-        //                 if (data==-1) {
-        //                     alert("请输入完整的信息");
-        //                 } else if (data==-2) {
-        //                     alert("账号必须是数字");
-        //                 } else if (data==-3) {
-        //                     alert("查无此人！");
-        //                 } else if(data==-4) {
-        //                     alert("密码输入错误！");
-        //                 } else {
-        //                     window.location.href="teacherholiday.jsp";
-        //                 }
-        //             }
-        //         });
-        //     });
-        //     $("#reject").click(function () {
-        //
-        //     });
-        // });
-    </script>
+<%--    <script>--%>
+<%--        $(document).ready(function () {--%>
+<%--            $("#link_agree").click(function () {--%>
+<%--                var confirmDelete = confirm("是否要同意该审批？");--%>
+<%--                if(!confirmDelete) return;--%>
+<%--            })--%>
+<%--        });--%>
+<%--    </script>--%>
 </head>
 <body>
 <%@include file="include/teacherheader.jsp"%>
@@ -87,10 +64,10 @@
                 <td>${holidayWithStuName.stuName}</td>
                 <td>
                     <button class="btn btn-success">
-                        <a href="/teacherholiday?stuID=${holidayWithStuName.holiday.stu_id}&staID=${sessionScope.user.id}&status=<%="agree"%> ">同意</a>
+                        <a href="/teacherholiday?stuID=${holidayWithStuName.holiday.stu_id}&staID=${sessionScope.user.id}&status=<%="agree"%>" id="link_agree">同意</a>
                     </button>
                     <button class="btn btn-danger">
-                        <a href="/teacherholiday?stuID=${holidayWithStuName.holiday.stu_id}&staID=${sessionScope.user.id}&status=<%="reject"%> ">拒绝</a>
+                        <a href="/teacherholiday?stuID=${holidayWithStuName.holiday.stu_id}&staID=${sessionScope.user.id}&status=<%="reject"%> " id="link_reject">拒绝</a>
                     </button>
                 </td>
             </tr>

@@ -65,7 +65,28 @@ public class BillDAO extends DAO{
     }
 
     public void update(Bill bean) {
+        /**
+         *     private int id;
+         *     private String reason;
+         *     private float money;
+         *     private String status;
+         *     private int stu_id;
+         */
+        String sql = "update bill set reason=?,money=?,status=?,stu_id=? where id=?";
+        try(Connection conn = DBUtil.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
 
+            stmt.setString(1,bean.getReason());
+            stmt.setFloat(2,bean.getMoney());
+            stmt.setString(3,bean.getStatus());
+            stmt.setInt(4,bean.getStu_id());
+            stmt.setInt(5,bean.getId());
+
+            stmt.execute();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     public void delete(int id) {
@@ -73,7 +94,25 @@ public class BillDAO extends DAO{
     }
 
     public Bill get(int id) {
-        return null;
+        String sql = "select * from bill where id=?";
+        Bill bill=null;
+        try(Connection conn = DBUtil.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1,id);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                bill = new Bill();
+                bill.setId(id);
+                bill.setReason(rs.getString(2));
+                bill.setMoney(rs.getFloat(3));
+                bill.setStatus(rs.getString(4));
+                bill.setStu_id(rs.getInt(5));
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return bill;
     }
 
     public List<Bill> list() {
@@ -83,13 +122,6 @@ public class BillDAO extends DAO{
             PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             ResultSet rs = stmt.executeQuery();
-            /**
-             *     private int id;
-             *     private String reason;
-             *     private float money;
-             *     private String status;
-             *     private int stu_id;
-             */
             while (rs.next()) {
                 Bill bill = new Bill();
                 bill.setId(rs.getInt(1));

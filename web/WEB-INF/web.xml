@@ -71,5 +71,14 @@
         <url-pattern>/teacherholiday</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>TeacherBillServlet</servlet-name>
+        <servlet-class>top.faroz.servlet.TeacherBillServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TeacherBillServlet</servlet-name>
+        <url-pattern>/teacherbill</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>
