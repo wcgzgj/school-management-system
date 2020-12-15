@@ -61,15 +61,6 @@ public class AskHolidayServlet extends HttpServlet {
         HolidayDAO holidayDAO = new HolidayDAO();
         StuStaDAO stuStaDAO = new StuStaDAO();
 
-
-        // //判断学生id是否出现在stu_sta表中，如果出现的话，说明当前学生有休假正在进行
-        // StuSta tmpStu = stuStaDAO.getByStu(stu.getId());
-        // if (tmpStu!=null) {
-        //     System.out.println(tmpStu);
-        //     writer.print(-3); //-3 当前学生有休假正在进行
-        //     return;
-        // }
-
         //判断是否有假期正在进行中，改成从holiday表中寻找
         List<Holiday> holidays = holidayDAO.list();
         for (Holiday holiday : holidays) {
@@ -101,8 +92,10 @@ public class AskHolidayServlet extends HttpServlet {
         StuSta stuSta = new StuSta();
         stuSta.setStu_id(stu.getId());
         stuSta.setSta_id(Integer.parseInt(sta));
+        // System.out.println(stuSta.toString());
         //只有在学生还没有绑定老师的情况下，才可以插入信息
-        if (stuStaDAO.getByStu(stu.getId())!=null) {
+        if (stuStaDAO.getByStu(stu.getId())==null) {
+            // System.out.println("进入判断");
             stuStaDAO.add(stuSta);
         }
     }

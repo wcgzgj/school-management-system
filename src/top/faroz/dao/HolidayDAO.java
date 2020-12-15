@@ -57,15 +57,8 @@ public class HolidayDAO extends DAO{
 
 
     public void update(Holiday bean) {
-        /**
-         *     private int id; //自增id
-         *     private String type; //请假类型 "事假 临时假条..."
-         *     private Date start; //开始时间
-         *     private Date end; //结束时间
-         *     private String status; //状态 "审核中  假期中  已销假"
-         *     private int stu_id; //申请该假的学生id
-         */
         String sql = "update holiday set type=?,start=?,end=?,status=?,stu_id=? where id=?";
+        System.out.println("dao层中的holiday状态"+bean.toString());
         try(Connection conn = DBUtil.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1,bean.getType());
@@ -76,6 +69,7 @@ public class HolidayDAO extends DAO{
             stmt.setInt(6,bean.getId());
 
             stmt.execute();
+
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -102,14 +96,6 @@ public class HolidayDAO extends DAO{
             stmt.setInt(1,id);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                /**
-                 *     private int id; //自增id
-                 *     private String type; //请假类型 "事假 临时假条..."
-                 *     private Date start; //开始时间
-                 *     private Date end; //结束时间
-                 *     private String status; //状态 "审核中  假期中  已销假"
-                 *     private int stu_id; //申请该假的学生id
-                 */
                 holiday=new Holiday();
                 holiday.setId(id);
                 holiday.setType(rs.getString(2));
@@ -131,14 +117,6 @@ public class HolidayDAO extends DAO{
         try (PreparedStatement stmt = conn.prepareStatement(sql)){
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                /**
-                 *     private int id; //假期编号
-                 *     private String type; //请假类型 "事假 临时假条..."
-                 *     private Date start; //开始时间
-                 *     private Date end; //结束时间
-                 *     private String status; //状态 "审核中  假期中  已销假"
-                 *     private int stu_id; //申请该假的学生id
-                 */
                 Holiday holiday = new Holiday();
                 holiday.setId(rs.getInt(1));
                 holiday.setType(rs.getString(2));

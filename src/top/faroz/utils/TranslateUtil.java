@@ -37,7 +37,7 @@ public class TranslateUtil {
                 return "实习";
             case "family":
                 return "探亲";
-            case "tmp":
+            case "temp":
                 return "临时";
             case "holiday":
                 return "假期";

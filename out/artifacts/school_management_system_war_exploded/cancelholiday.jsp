@@ -43,12 +43,12 @@
 <div style="margin: auto;text-align: center" >
     <table  class="table table-striped" style="text-align: center;margin: auto;width: 80%">
         <tr>
-            <th>序号</th>
-            <th>请假类型</th>
-            <th>开始时间</th>
-            <th>结束时间</th>
-            <th>请假状态</th>
-            <th>销假</th>
+            <td>序号</td>
+            <td>请假类型</td>
+            <td>开始时间</td>
+            <td>结束时间</td>
+            <td>请假状态</td>
+            <td>销假</td>
         </tr>
        <c:forEach items="${holidays}" var="holiday" varStatus="st">
            <tr>

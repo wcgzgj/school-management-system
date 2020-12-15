@@ -1,11 +1,14 @@
 package top.faroz.dao;
 
+import com.sun.org.apache.regexp.internal.RE;
 import top.faroz.bean.Bill;
+import top.faroz.bean.Holiday;
 import top.faroz.bean.Stu;
 import top.faroz.bean.StuSta;
 import top.faroz.utils.DBUtil;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -97,7 +100,7 @@ public class StuStaDAO {
         }
     }
 
-    public void update(Bill bean) {
+    public void update(StuSta bean) {
 
     }
 
@@ -119,15 +122,31 @@ public class StuStaDAO {
         }
     }
 
-    public Bill get(int id) {
+    public StuSta get(int id) {
         return null;
     }
 
-    public List<Bill> list() {
-        return list(0,Short.MAX_VALUE);
+    public List<StuSta> list() {
+        String sql = "select * from stu_sta";
+        List<StuSta> list = new ArrayList<>();
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)){
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                StuSta stuSta = new StuSta();
+                stuSta.setId(rs.getInt(1));
+                stuSta.setStu_id(rs.getInt(2));
+                stuSta.setSta_id(rs.getInt(3));
+                list.add(stuSta);
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return list;
     }
 
-    public List<Bill> list(int start,int end) {
+    public List<StuSta> list(int start, int end) {
         return null;
     }
 }

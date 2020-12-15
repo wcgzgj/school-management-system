@@ -62,5 +62,14 @@
         <url-pattern>/askbill</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>TeacherHolidayServlet</servlet-name>
+        <servlet-class>top.faroz.servlet.TeacherHolidayServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TeacherHolidayServlet</servlet-name>
+        <url-pattern>/teacherholiday</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>
