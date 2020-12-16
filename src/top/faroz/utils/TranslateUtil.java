@@ -35,7 +35,7 @@ public class TranslateUtil {
 
     public static String translateHolidayType(String str) {
         switch (str) {
-            case "practice":
+            case "practice": 
                 return "实习";
             case "family":
                 return "探亲";
